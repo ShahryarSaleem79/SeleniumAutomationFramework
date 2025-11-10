@@ -43,7 +43,8 @@ public class ExtentReportManager {
 		try {
 			
 			File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			String path = "screenshots/screenshotName"+".png";
+			String path = System.getProperty("user.dir")+ "/screenshots/"+screenshotName+".png";
+			System.out.println("Path for screenshot is : "+path);
 			FileUtils.copyFile(src, new File(path));
 			return path;
 		}
